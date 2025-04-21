@@ -23,7 +23,7 @@ export function Home() {
       console.log(response.data);
       
     } catch (error) {
-      console.error("Erro ao listar repositórios:", error.message);
+      console.error("Erro ao listar repositórios:", error);
     }
   };
 

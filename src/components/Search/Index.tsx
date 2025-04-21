@@ -1,5 +1,4 @@
-import { useState, useRef } from "react";
-import { PositionButton } from "../../interfaces";
+import { useState } from "react";
 import { Menu } from "../Menu/Index";
 
 import { CiSearch } from "react-icons/ci";
