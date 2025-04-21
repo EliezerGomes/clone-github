@@ -315,6 +315,172 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@octokit/app@^15.1.6":
+  version "15.1.6"
+  dependencies:
+    "@octokit/auth-app" "^7.2.1"
+    "@octokit/auth-unauthenticated" "^6.1.3"
+    "@octokit/core" "^6.1.5"
+    "@octokit/oauth-app" "^7.1.6"
+    "@octokit/plugin-paginate-rest" "^12.0.0"
+    "@octokit/types" "^14.0.0"
+    "@octokit/webhooks" "^13.6.1"
+
+"@octokit/auth-app@^7.2.1":
+  version "7.2.1"
+  dependencies:
+    "@octokit/auth-oauth-app" "^8.1.4"
+    "@octokit/auth-oauth-user" "^5.1.4"
+    "@octokit/request" "^9.2.3"
+    "@octokit/request-error" "^6.1.8"
+    "@octokit/types" "^14.0.0"
+    toad-cache "^3.7.0"
+    universal-github-app-jwt "^2.2.0"
+    universal-user-agent "^7.0.0"
+
+"@octokit/auth-oauth-app@^8.1.3", "@octokit/auth-oauth-app@^8.1.4":
+  version "8.1.4"
+  dependencies:
+    "@octokit/auth-oauth-device" "^7.1.5"
+    "@octokit/auth-oauth-user" "^5.1.4"
+    "@octokit/request" "^9.2.3"
+    "@octokit/types" "^14.0.0"
+    universal-user-agent "^7.0.0"
+
+"@octokit/auth-oauth-device@^7.1.5":
+  version "7.1.5"
+  dependencies:
+    "@octokit/oauth-methods" "^5.1.5"
+    "@octokit/request" "^9.2.3"
+    "@octokit/types" "^14.0.0"
+    universal-user-agent "^7.0.0"
+
+"@octokit/auth-oauth-user@^5.1.3", "@octokit/auth-oauth-user@^5.1.4":
+  version "5.1.4"
+  dependencies:
+    "@octokit/auth-oauth-device" "^7.1.5"
+    "@octokit/oauth-methods" "^5.1.5"
+    "@octokit/request" "^9.2.3"
+    "@octokit/types" "^14.0.0"
+    universal-user-agent "^7.0.0"
+
+"@octokit/auth-token@^5.0.0":
+  version "5.1.2"
+
+"@octokit/auth-unauthenticated@^6.1.2", "@octokit/auth-unauthenticated@^6.1.3":
+  version "6.1.3"
+  dependencies:
+    "@octokit/request-error" "^6.1.8"
+    "@octokit/types" "^14.0.0"
+
+"@octokit/core@^6.1.3", "@octokit/core@^6.1.4", "@octokit/core@^6.1.5", "@octokit/core@>=6":
+  version "6.1.5"
+  dependencies:
+    "@octokit/auth-token" "^5.0.0"
+    "@octokit/graphql" "^8.2.2"
+    "@octokit/request" "^9.2.3"
+    "@octokit/request-error" "^6.1.8"
+    "@octokit/types" "^14.0.0"
+    before-after-hook "^3.0.2"
+    universal-user-agent "^7.0.0"
+
+"@octokit/endpoint@^10.1.4":
+  version "10.1.4"
+  dependencies:
+    "@octokit/types" "^14.0.0"
+    universal-user-agent "^7.0.2"
+
+"@octokit/graphql@^8.2.2":
+  version "8.2.2"
+  dependencies:
+    "@octokit/request" "^9.2.3"
+    "@octokit/types" "^14.0.0"
+    universal-user-agent "^7.0.0"
+
+"@octokit/oauth-app@^7.1.6":
+  version "7.1.6"
+  dependencies:
+    "@octokit/auth-oauth-app" "^8.1.3"
+    "@octokit/auth-oauth-user" "^5.1.3"
+    "@octokit/auth-unauthenticated" "^6.1.2"
+    "@octokit/core" "^6.1.4"
+    "@octokit/oauth-authorization-url" "^7.1.1"
+    "@octokit/oauth-methods" "^5.1.4"
+    "@types/aws-lambda" "^8.10.83"
+    universal-user-agent "^7.0.0"
+
+"@octokit/oauth-authorization-url@^7.0.0", "@octokit/oauth-authorization-url@^7.1.1":
+  version "7.1.1"
+
+"@octokit/oauth-methods@^5.1.4", "@octokit/oauth-methods@^5.1.5":
+  version "5.1.5"
+  dependencies:
+    "@octokit/oauth-authorization-url" "^7.0.0"
+    "@octokit/request" "^9.2.3"
+    "@octokit/request-error" "^6.1.8"
+    "@octokit/types" "^14.0.0"
+
+"@octokit/openapi-types@^25.0.0":
+  version "25.0.0"
+
+"@octokit/openapi-webhooks-types@10.4.0":
+  version "10.4.0"
+
+"@octokit/plugin-paginate-graphql@^5.2.4":
+  version "5.2.4"
+
+"@octokit/plugin-paginate-rest@^12.0.0":
+  version "12.0.0"
+  dependencies:
+    "@octokit/types" "^14.0.0"
+
+"@octokit/plugin-rest-endpoint-methods@^14.0.0":
+  version "14.0.0"
+  dependencies:
+    "@octokit/types" "^14.0.0"
+
+"@octokit/plugin-retry@^7.2.1":
+  version "7.2.1"
+  dependencies:
+    "@octokit/request-error" "^6.1.8"
+    "@octokit/types" "^14.0.0"
+    bottleneck "^2.15.3"
+
+"@octokit/plugin-throttling@^10.0.0":
+  version "10.0.0"
+  dependencies:
+    "@octokit/types" "^14.0.0"
+    bottleneck "^2.15.3"
+
+"@octokit/request-error@^6.1.7", "@octokit/request-error@^6.1.8":
+  version "6.1.8"
+  dependencies:
+    "@octokit/types" "^14.0.0"
+
+"@octokit/request@^9.2.3":
+  version "9.2.3"
+  dependencies:
+    "@octokit/endpoint" "^10.1.4"
+    "@octokit/request-error" "^6.1.8"
+    "@octokit/types" "^14.0.0"
+    fast-content-type-parse "^2.0.0"
+    universal-user-agent "^7.0.2"
+
+"@octokit/types@^14.0.0":
+  version "14.0.0"
+  dependencies:
+    "@octokit/openapi-types" "^25.0.0"
+
+"@octokit/webhooks-methods@^5.1.1":
+  version "5.1.1"
+
+"@octokit/webhooks@^13.6.1":
+  version "13.8.0"
+  dependencies:
+    "@octokit/openapi-webhooks-types" "10.4.0"
+    "@octokit/request-error" "^6.1.7"
+    "@octokit/webhooks-methods" "^5.1.1"
+
 "@rollup/rollup-win32-x64-msvc@4.40.0":
   version "4.40.0"
   resolved "https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.40.0.tgz"
@@ -361,6 +527,9 @@
     "@tailwindcss/node" "4.1.4"
     "@tailwindcss/oxide" "4.1.4"
     tailwindcss "4.1.4"
+
+"@types/aws-lambda@^8.10.83":
+  version "8.10.149"
 
 "@types/babel__core@^7.20.5":
   version "7.20.5"
@@ -558,6 +727,12 @@ balanced-match@^1.0.0:
   resolved "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
+before-after-hook@^3.0.2:
+  version "3.0.2"
+
+bottleneck@^2.15.3:
+  version "2.19.5"
+
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz"
@@ -629,6 +804,11 @@ convert-source-map@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/convert-source-map/-/convert-source-map-2.0.0.tgz"
   integrity sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==
+
+cookie@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/cookie/-/cookie-1.0.2.tgz"
+  integrity sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==
 
 cross-spawn@^7.0.6:
   version "7.0.6"
@@ -816,6 +996,9 @@ esutils@^2.0.2:
   version "2.0.3"
   resolved "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
+
+fast-content-type-parse@^2.0.0:
+  version "2.0.1"
 
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
@@ -1135,6 +1318,22 @@ normalize-range@^0.1.2:
   resolved "https://registry.npmjs.org/normalize-range/-/normalize-range-0.1.2.tgz"
   integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
 
+octokit@^4.1.3:
+  version "4.1.3"
+  resolved "https://registry.npmjs.org/octokit/-/octokit-4.1.3.tgz"
+  integrity sha512-PP+EL8h4xPCE9NBo6jXq6I2/EiTXsn1cg9F0IZehHBv/qhuQpyGMFElEB17miWKciuT6vRHiFFiG9+FoXOmg6A==
+  dependencies:
+    "@octokit/app" "^15.1.6"
+    "@octokit/core" "^6.1.5"
+    "@octokit/oauth-app" "^7.1.6"
+    "@octokit/plugin-paginate-graphql" "^5.2.4"
+    "@octokit/plugin-paginate-rest" "^12.0.0"
+    "@octokit/plugin-rest-endpoint-methods" "^14.0.0"
+    "@octokit/plugin-retry" "^7.2.1"
+    "@octokit/plugin-throttling" "^10.0.0"
+    "@octokit/request-error" "^6.1.8"
+    "@octokit/types" "^14.0.0"
+
 optionator@^0.9.3:
   version "0.9.4"
   resolved "https://registry.npmjs.org/optionator/-/optionator-0.9.4.tgz"
@@ -1222,7 +1421,7 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-dom@^19.0.0:
+react-dom@^19.0.0, react-dom@>=18:
   version "19.1.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-19.1.0.tgz"
   integrity sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==
@@ -1239,7 +1438,23 @@ react-refresh@^0.17.0:
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.17.0.tgz"
   integrity sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==
 
-react@*, react@^19.0.0, react@^19.1.0, react@>=18.0.0:
+react-router-dom@^7.5.1:
+  version "7.5.1"
+  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-7.5.1.tgz"
+  integrity sha512-5DPSPc7ENrt2tlKPq0FtpG80ZbqA9aIKEyqX6hSNJDlol/tr6iqCK4crqdsusmOSSotq6zDsn0y3urX9TuTNmA==
+  dependencies:
+    react-router "7.5.1"
+
+react-router@7.5.1:
+  version "7.5.1"
+  resolved "https://registry.npmjs.org/react-router/-/react-router-7.5.1.tgz"
+  integrity sha512-/jjU3fcYNd2bwz9Q0xt5TwyiyoO8XjSEFXJY4O/lMAlkGTHWuHRAbR9Etik+lSDqMC7A7mz3UlXzgYT6Vl58sA==
+  dependencies:
+    cookie "^1.0.1"
+    set-cookie-parser "^2.6.0"
+    turbo-stream "2.4.0"
+
+react@*, react@^19.0.0, react@^19.1.0, react@>=18, react@>=18.0.0:
   version "19.1.0"
   resolved "https://registry.npmjs.org/react/-/react-19.1.0.tgz"
   integrity sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==
@@ -1305,6 +1520,11 @@ semver@^7.6.0:
   resolved "https://registry.npmjs.org/semver/-/semver-7.7.1.tgz"
   integrity sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==
 
+set-cookie-parser@^2.6.0:
+  version "2.7.1"
+  resolved "https://registry.npmjs.org/set-cookie-parser/-/set-cookie-parser-2.7.1.tgz"
+  integrity sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ==
+
 shebang-command@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz"
@@ -1359,10 +1579,18 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
+toad-cache@^3.7.0:
+  version "3.7.0"
+
 ts-api-utils@^2.0.1:
   version "2.1.0"
   resolved "https://registry.npmjs.org/ts-api-utils/-/ts-api-utils-2.1.0.tgz"
   integrity sha512-CUgTZL1irw8u29bzrOD/nH85jqyc74D6SshFgujOIA7osm2Rz7dYH77agkx7H4FBNxDq7Cjf+IjaX/8zwFW+ZQ==
+
+turbo-stream@2.4.0:
+  version "2.4.0"
+  resolved "https://registry.npmjs.org/turbo-stream/-/turbo-stream-2.4.0.tgz"
+  integrity sha512-FHncC10WpBd2eOmGwpmQsWLDoK4cqsA/UT/GqNoaKOQnT8uzhtCbg3EoUDMvqpOSAI0S26mr0rkjzbOO6S3v1g==
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
@@ -1384,6 +1612,12 @@ typescript@>=4.8.4, "typescript@>=4.8.4 <5.9.0", typescript@~5.7.2:
   version "5.7.3"
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.7.3.tgz"
   integrity sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==
+
+universal-github-app-jwt@^2.2.0:
+  version "2.2.2"
+
+universal-user-agent@^7.0.0, universal-user-agent@^7.0.2:
+  version "7.0.2"
 
 update-browserslist-db@^1.1.1:
   version "1.1.3"
