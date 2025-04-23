@@ -16,6 +16,9 @@ export async function getRepositories(token: string) {
       stargazersCount: repo.stargazers_count,
       forksCount: repo.forks_count,
       language: repo.language,
+      fork: repo.fork,
+      archived: repo.archived,
+      mirror_url: repo.mirror_url,
     }));
 
     return filteredRepos;
@@ -39,6 +42,9 @@ export async function getStarreds(token: string) {
       stargazersCount: starred.stargazers_count,
       forksCount: starred.forks_count,
       language: starred.language,
+      fork: starred.fork,
+      archived: starred.archived,
+      mirror_url: starred.mirror_url,
     }));
 
     return filteredStarreds;

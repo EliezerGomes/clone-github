@@ -11,7 +11,7 @@ interface Repository {
 
 export function Repository({repository, type}: Repository) {
   return (
-      <div className="flex-1">
+
         <div className="flex flex-col gap-1 cursor-pointer">
           <div className="flex flex-row gap-1 items-center">
             <div className="font-light">{repository.ownerLogin}</div>
@@ -41,6 +41,6 @@ export function Repository({repository, type}: Repository) {
             </div>
           </div>
         </div>
-      </div>
+ 
   );
 }

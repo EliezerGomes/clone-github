@@ -1,13 +1,21 @@
 import { create } from "zustand";
 
-interface StatesTypes {
-    token: string;
-    setToken: (newToken: string) => void;
-  }
+//Interfaces
+import { StatesTypes, FilterState } from "../interfaces";
 
 export const useToken = create<StatesTypes>((set) => ({
   token: localStorage.getItem("TOKEN") || "",
   setToken: (newToken: string) => {
     set({ token: newToken });
   }
+}));
+
+export const useFilters = create<FilterState>((set) => ({
+  searchQuery: "",
+  selectedType: "All",
+  selectedLanguage: "All",
+  setSearchQuery: (query: string) => set({ searchQuery: query }),
+  setSelectedType: (type: string) => set({ selectedType: type }),
+  setSelectedLanguage: (language: string) => set({ selectedLanguage: language }),
+  clearFilters: () => set({ searchQuery: "", selectedType: "All", selectedLanguage: "All" }),
 }));
