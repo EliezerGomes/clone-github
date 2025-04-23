@@ -9,38 +9,34 @@ export function Verify() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-    const verifier = localStorage.getItem("VERIFIER");
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get("code");
+    const codeVerifier = localStorage.getItem("VERIFIER");
 
-    if (code && verifier) {
-      const clientId = "Ov23liR0SizuIMoX7iLC";
-      const redirect = "http://localhost:3000/callback";
-
-      fetch("https://github.com/login/oauth/access_token", {
+    if (code && codeVerifier) {
+      fetch("https://authenticate-github.onrender.com/api/authenticate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify({
-          client_id: clientId,
           code,
-          code_verifier: verifier,
-          redirect_uri: redirect,
+          code_verifier: codeVerifier,
         }),
       })
-        .then((res) => res.json())
-        .then((data) => {
+        .then(res => {
+          return res.json();
+        })
+        .then(data => {
           if (data.access_token) {
-            setToken(data.access_token)
+            setToken(data.access_token);
             navigate("/home");
           } else {
             console.error("Erro ao obter token:", data);
             navigate("/");
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.error("Erro ao trocar código por token:", error.message);
           navigate("/");
         });
