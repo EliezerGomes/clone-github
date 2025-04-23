@@ -1,44 +1,46 @@
-import { Search } from "../Search/Index";
-
 import { FaStar } from "react-icons/fa";
 import { GoGitBranch } from "react-icons/go";
 
-export function Repository() {
-  return (
-    <div className="flex flex-col gap-8 h-full">
-      <Search />
+//Interfaces
+import { PropertiesRepository } from "../../interfaces";
 
+interface Repository {
+  repository: PropertiesRepository
+  type: string
+}
+
+export function Repository({repository, type}: Repository) {
+  return (
       <div className="flex-1">
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 cursor-pointer">
           <div className="flex flex-row gap-1 items-center">
-            <div className="font-light">Chamber</div>
+            <div className="font-light">{repository.ownerLogin}</div>
             <span>/</span>
             <div className="text-custom-blue-500 font-medium">
-              Smite and ignite
+            {repository.name}
             </div>
           </div>
 
           <div className="text-custom-gray-800">
-            Node.js Foundation Release Working Group.
+          {repository.description}
           </div>
 
           <div className="flex flex-row gap-15">
-            {true ? (
+            {type !== 'starred' ? (
               <div className="flex flex-row gap-2 items-center">
                 <FaStar className="mb-0.5" />
-                <span>1.569</span>
+                <span>{repository.stargazersCount}</span>
               </div>
             ) : (
-              <div>C++</div>
+              <div>{repository.language}</div>
             )}
 
             <div className="flex flex-row gap-2 items-center">
               <GoGitBranch className="mb-0.5" />
-              <span>142</span>
+              <span>{repository.forksCount}</span>
             </div>
           </div>
         </div>
       </div>
-    </div>
   );
 }

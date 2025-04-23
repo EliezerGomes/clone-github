@@ -1,0 +1,96 @@
+import { useQuery } from "@tanstack/react-query";
+import { Octokit } from "octokit";
+
+export async function getRepositories(token: string) {
+  const octokit = new Octokit({ auth: token });
+
+  try {
+    const response = await octokit.request("GET /user/repos", {
+      visibility: "all",
+    });
+
+    const filteredRepos = response.data.map((repo) => ({
+      name: repo.name,
+      ownerLogin: repo.owner.login,
+      description: repo.description,
+      stargazersCount: repo.stargazers_count,
+      forksCount: repo.forks_count,
+      language: repo.language,
+    }));
+
+    return filteredRepos;
+  } catch (error) {
+    console.error("Erro ao listar repositórios:", error);
+  }
+}
+
+export async function getStarreds(token: string) {
+  const octokit = new Octokit({ auth: token });
+
+  try {
+    const response = await octokit.request("GET /user/starred", {
+      visibility: "all",
+    });
+
+    const filteredStarreds = response.data.map((starred) => ({
+      name: starred.name,
+      ownerLogin: starred.owner.login,
+      description: starred.description,
+      stargazersCount: starred.stargazers_count,
+      forksCount: starred.forks_count,
+      language: starred.language,
+    }));
+
+    return filteredStarreds;
+  } catch (error) {
+    console.error("Erro ao listar repositórios starred:", error);
+  }
+}
+
+export async function getUserProfile(token: string) {
+  const octokit = new Octokit({ auth: token });
+
+  try {
+    const response = await octokit.request("GET /user", {
+      headers: {
+        Accept: "application/vnd.github.v3+json",
+      },
+    });
+
+    return {
+      avatar_url: response.data.avatar_url,
+      name: response.data.name,
+      bio: response.data.bio,
+      company: response.data.company,
+      location: response.data.location,
+      blog: response.data.blog,
+    };
+  } catch (error) {
+    console.error("Erro ao buscar informações do perfil:", error);
+    throw error;
+  }
+}
+
+export const useRepository = (token: string) => {
+  return useQuery({
+    queryKey: ["repository", token],
+    queryFn: () => getRepositories(token),
+    enabled: !!token,
+  });
+};
+
+export const useStarred = (token: string) => {
+  return useQuery({
+    queryKey: ["starred", token],
+    queryFn: () => getStarreds(token),
+    enabled: !!token,
+  });
+};
+
+export const useUserProfile = (token: string) => {
+  return useQuery({
+    queryKey: ["user", token],
+    queryFn: () => getUserProfile(token),
+    enabled: !!token,
+  });
+};
