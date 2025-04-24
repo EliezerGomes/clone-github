@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { Octokit } from "octokit";
 
+import { useToken } from "../stores/useLogin";
+
 export async function getRepositories(token: string) {
   const octokit = new Octokit({ auth: token });
 
@@ -53,7 +55,7 @@ export async function getStarreds(token: string) {
   }
 }
 
-export async function getUserProfile(token: string) {
+export async function getUserProfile(token: string, setProfileName: (profileName: string) => void) {
   const octokit = new Octokit({ auth: token });
 
   try {
@@ -62,6 +64,8 @@ export async function getUserProfile(token: string) {
         Accept: "application/vnd.github.v3+json",
       },
     });
+
+    setProfileName(response.data.login)
 
     return {
       avatar_url: response.data.avatar_url,
@@ -77,9 +81,9 @@ export async function getUserProfile(token: string) {
   }
 }
 
-export const useRepository = (token: string) => {
+export const useRepositories = (token: string) => {
   return useQuery({
-    queryKey: ["repository", token],
+    queryKey: ["repositories", token],
     queryFn: () => getRepositories(token),
     enabled: !!token,
   });
@@ -94,9 +98,10 @@ export const useStarred = (token: string) => {
 };
 
 export const useUserProfile = (token: string) => {
+const { setProfileName } = useToken()
   return useQuery({
     queryKey: ["user", token],
-    queryFn: () => getUserProfile(token),
+    queryFn: () => getUserProfile(token, setProfileName),
     enabled: !!token,
   });
 };

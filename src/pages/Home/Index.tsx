@@ -12,7 +12,7 @@ import { PropertiesRepository } from "../../interfaces";
 import { useToken, useFilters } from "../../stores/useLogin";
 
 import { Search } from "../../components/Search/Index";
-import { useRepository, useStarred } from "../../hooks/useRepositories";
+import { useRepositories, useStarred } from "../../hooks/useRepositories";
 import { useEffect, useState } from "react";
 
 export function Home() {
@@ -27,7 +27,7 @@ export function Home() {
     data: repository,
     isLoading: loadingRepository,
     error: errorRepository,
-  } = useRepository(token);
+  } = useRepositories(token);
 
   const {
     data: starred,

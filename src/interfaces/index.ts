@@ -8,6 +8,8 @@ export interface PropertiesRepository {
   fork: boolean;
   archived: boolean;
   mirror_url?: string | null;
+  html_url?: string;
+  open_issues_count?: number;
 }
 
 export interface UserProfile {
@@ -29,7 +31,9 @@ export interface MenuProps {
 
 export interface StatesTypes {
   token: string;
+  profileName: string
   setToken: (newToken: string) => void;
+  setProfileName: (profileName: string) => void;
 }
 
 export interface FilterState {
