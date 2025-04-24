@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu } from "../Menu/Index";
 
-import { CiSearch } from "react-icons/ci";
+import { LuSearch } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
 
 //Interfaces
@@ -39,20 +39,20 @@ export function Search({ types, languages }: SearchProps) {
   }
 
   return (
-    <div className="flex flex-row items-center col-auto">
-      <div className="flex flex-row flex-1 items-center gap-3 border-b-1 font-normal text-custom-gray-800 border-gray-300">
-        <CiSearch className="text-xl" />
+    <div className="flex flex-col-reverse lg:flex-row lg:items-center md:gap-7 lg:gap-0 col-auto">
+      <div className="flex flex-row flex-1 items-center pb-2 gap-3 border-b-1 font-normal text-custom-gray-800 border-gray-300">
+        <LuSearch className="text-2xl" />
         <input
           type="text"
           placeholder="Search Here"
-          className="flex-1 outline-0"
+          className="flex-1 outline-0 font-medium text-gray-600"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={handleKeyDown}
         />
       </div>
 
-      <div className="flex flex-row flex-1 items-center justify-end gap-4">
+      <div className="flex flex-row flex-1 items-center lg:justify-end gap-4">
         <button
           className="flex flex-row relative items-center cursor-pointer hover:not-focus:to-blue-900 gap-3 px-3 py-1.5 rounded-full text-white bg-gradient-to-r from-custom-blue-800 to-custom-blue-500"
           onClick={handleActiveMenuType}
