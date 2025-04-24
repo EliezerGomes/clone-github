@@ -85,7 +85,7 @@ export function Home() {
   const error = active === "repository" ? errorRepository : errorStarred;
 
   return (
-    <div className="flex flex-col gap-6 h-screen">
+    <div className="flex flex-1 flex-col gap-6 h-screen mt-30">
       <div className="h-full flex flex-row gap-10 lg:px-[20%]">
         <Sidebar />
 
