@@ -39,13 +39,14 @@ export function Search({ types, languages }: SearchProps) {
   }
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row lg:items-center md:gap-7 lg:gap-0 col-auto">
-      <div className="flex flex-row flex-1 items-center pb-2 gap-3 border-b-1 font-normal text-custom-gray-800 border-gray-300">
+    <div className="flex flex-row-reverse md:flex-col-reverse mx-4 py-3 px-2 rounded-lg bg-custom-white-200 md:mx-0 md:p-0 md:rounded-none md:bg-white lg:flex-row lg:items-center md:gap-7 lg:gap-0 col-auto">
+      <LuSearch className="text-2xl md:hidden text-custom-blue-500" onClick={() => alert("Abrir pesquisa no mobile")} />
+      <div className="hidden md:flex flex-row flex-1 items-center pb-2 gap-3 border-b-1 font-normal text-custom-gray-800 border-gray-300">
         <LuSearch className="text-2xl" />
         <input
           type="text"
           placeholder="Search Here"
-          className="flex-1 outline-0 font-medium text-gray-600"
+          className="md:flex-1 outline-0 font-medium text-gray-600"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={handleKeyDown}

@@ -17,7 +17,7 @@ export function Repository({ repository, type }: Repository) {
     window.open(`https://github-explorer.gabrielcordeiro.dev/repository/${profileName}/${repository.name}`, '_blank')
   }
   return (
-    <div onClick={handleClick} className="flex flex-col gap-1 cursor-pointer">
+    <div onClick={handleClick} className="flex flex-col mx-5 md:mx-0 gap-1 cursor-pointer">
       <div className="flex flex-row gap-1 items-center">
         <div className="font-light">{repository.ownerLogin}</div>
         <span>/</span>
