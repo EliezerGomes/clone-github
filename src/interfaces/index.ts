@@ -44,6 +44,15 @@ export interface FilterState {
   setSelectedType: (type: string) => void;
   setSelectedLanguage: (language: string) => void;
   clearFilters: () => void;
+  
+}
+
+export interface useGeneral {
+  profileName: string
+  activeType: boolean,
+  setActiveType: (val: boolean) => void;
+  activeLanguage: boolean,
+  setActiveLanguage: (val: boolean) => void;
 }
 
 export interface SearchProps {

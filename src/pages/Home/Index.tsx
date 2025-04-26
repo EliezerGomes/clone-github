@@ -9,7 +9,7 @@ import { FaRegStar } from "react-icons/fa";
 import { PropertiesRepository } from "../../interfaces";
 
 //Stores
-import { useToken, useFilters } from "../../stores/useLogin";
+import { useToken, useFilters, useProfile } from "../../stores/useLogin";
 
 import { Search } from "../../components/Search/Index";
 import { useRepositories, useStarred } from "../../hooks/useRepositories";
@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 
 export function Home() {
   const { token } = useToken();
+  const { setActiveLanguage, setActiveType } = useProfile()
   const { searchQuery, selectedType, selectedLanguage, clearFilters } =
     useFilters();
   const [active, setActive] = useState<string>("repository");
@@ -44,6 +45,11 @@ export function Home() {
         .filter((lang): lang is string => lang !== null)
     ),
   ];
+
+  function handleCloseMenus() {
+    setActiveType(false)
+    setActiveLanguage(false)
+  }
 
   useEffect(() => {
     clearFilters();
@@ -85,7 +91,7 @@ export function Home() {
   const error = active === "repository" ? errorRepository : errorStarred;
 
   return (
-    <div className="flex flex-1 flex-col gap-6 h-screen mt-10 md:mt-30">
+    <div onClick={handleCloseMenus} className="flex flex-1 flex-col gap-6 h-screen mt-10 md:mt-30">
       <div className="h-full flex flex-col items-center md:items-start md:flex-row gap-10 lg:px-[20%] md:px-6">
         <Sidebar />
 

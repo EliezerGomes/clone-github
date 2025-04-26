@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Menu } from "../Menu/Index";
+import { MobileMenu } from "../MobileMenu/Index";
 
 import { LuSearch } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
@@ -7,12 +7,11 @@ import { IoIosArrowDown } from "react-icons/io";
 //Interfaces
 import { SearchProps } from "../../interfaces";
 //Stores
-import { useFilters } from "../../stores/useLogin";
+import { useFilters, useProfile } from "../../stores/useLogin";
 
 export function Search({ types, languages }: SearchProps) {
-  const [activeType, setActiveType] = useState<boolean>(false);
-  const [activeLanguage, setActiveLanguage] = useState<boolean>(false);
-
+  const { activeLanguage, activeType, setActiveLanguage, setActiveType } =
+    useProfile();
   const {
     searchQuery,
     selectedType,
@@ -22,14 +21,20 @@ export function Search({ types, languages }: SearchProps) {
     setSelectedLanguage,
   } = useFilters();
 
-  function handleActiveMenuType() {
-    setActiveType(!activeType);
-    setActiveLanguage(false);
+  function handleActiveMenuType(event: React.MouseEvent<HTMLButtonElement>) {
+    event.stopPropagation()
+    if (!activeLanguage) {
+      setActiveType(!activeType);
+    }
+    setActiveLanguage(false)
   }
 
-  function handleActiveMenuLanguage() {
-    setActiveLanguage(!activeLanguage);
-    setActiveType(false);
+  function handleActiveMenuLanguage(event: React.MouseEvent<HTMLButtonElement>) {
+    event.stopPropagation()
+    if (!activeType) {
+      setActiveLanguage(!activeLanguage);
+    }
+    setActiveType(false)
   }
 
   function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -40,7 +45,10 @@ export function Search({ types, languages }: SearchProps) {
 
   return (
     <div className="flex flex-row-reverse md:flex-col-reverse mx-4 py-3 px-2 rounded-lg bg-custom-white-200 md:mx-0 md:p-0 md:rounded-none md:bg-white lg:flex-row lg:items-center md:gap-7 lg:gap-0 col-auto">
-      <LuSearch className="text-2xl md:hidden text-custom-blue-500" onClick={() => alert("Abrir pesquisa no mobile")} />
+      <LuSearch
+        className="text-2xl md:hidden text-custom-blue-500"
+        onClick={() => alert("Abrir pesquisa no mobile")}
+      />
       <div className="hidden md:flex flex-row flex-1 items-center pb-2 gap-3 border-b-1 font-normal text-custom-gray-800 border-gray-300">
         <LuSearch className="text-2xl" />
         <input
@@ -62,6 +70,7 @@ export function Search({ types, languages }: SearchProps) {
           <div>Type</div>
 
           {activeType && (
+            <>
             <Menu
               title="Select type"
               options={types}
@@ -69,6 +78,15 @@ export function Search({ types, languages }: SearchProps) {
               onClose={() => setActiveType(false)}
               selectedOption={selectedType}
             />
+
+            <MobileMenu
+                title=""
+                options={types}
+                onSelect={setSelectedType}
+                onClose={() => setActiveType(false)}
+                selectedOption={selectedType}
+              />
+            </>
           )}
         </button>
 
@@ -79,6 +97,7 @@ export function Search({ types, languages }: SearchProps) {
           <IoIosArrowDown />
           <div>Language</div>
           {activeLanguage && (
+            <>
             <Menu
               title="Select language"
               options={languages}
@@ -86,6 +105,14 @@ export function Search({ types, languages }: SearchProps) {
               onClose={() => setActiveLanguage(false)}
               selectedOption={selectedLanguage}
             />
+            <MobileMenu
+                title=""
+                options={languages}
+                onSelect={setSelectedLanguage}
+                onClose={() => setActiveLanguage(false)}
+                selectedOption={selectedLanguage}
+              />
+            </>
           )}
         </button>
       </div>
