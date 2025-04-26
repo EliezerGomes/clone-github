@@ -27,6 +27,7 @@ export interface MenuProps {
   onSelect: (option: string) => void;
   onClose: () => void;
   selectedOption: string;
+  type?: string
 }
 
 export interface StatesTypes {

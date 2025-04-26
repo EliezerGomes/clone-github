@@ -6,9 +6,10 @@ export function MobileMenu({
   onSelect,
   onClose,
   selectedOption,
+  type
 }: MenuProps) {
   return (
-    <div className="rounded-md border border-gray-200 top-14 right-4 text-black absolute bg-custom-white-50 w-65 lg:hidden shadow-lg">
+    <div className={`rounded-md border border-gray-200 top-14 md:right-4 text-black absolute bg-custom-white-50 w-65 lg:hidden shadow-lg ${type === 'type' ? '-right-45' : '-right-30'}`}>
       {options.map((option: string) => (
         <div
           key={option}

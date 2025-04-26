@@ -85,6 +85,7 @@ export function Search({ types, languages }: SearchProps) {
                 onSelect={setSelectedType}
                 onClose={() => setActiveType(false)}
                 selectedOption={selectedType}
+                type={'type'}
               />
             </>
           )}
@@ -111,6 +112,7 @@ export function Search({ types, languages }: SearchProps) {
                 onSelect={setSelectedLanguage}
                 onClose={() => setActiveLanguage(false)}
                 selectedOption={selectedLanguage}
+                type={'language'}
               />
             </>
           )}
