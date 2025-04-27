@@ -14,6 +14,8 @@ export function Login() {
 
     const url = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirect}&scope=${scope}`;
     window.location.href = url;
+    console.log(888);
+    
   }
 
   function handleLocalLogin() {

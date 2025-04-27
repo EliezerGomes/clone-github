@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useToken } from "../../stores/useGeneral";
 
 export function Verify() {
+  console.log('verify');
+  
   const { setToken } = useToken();
   const navigate = useNavigate();
 
