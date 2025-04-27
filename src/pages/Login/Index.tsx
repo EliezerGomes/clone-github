@@ -9,7 +9,7 @@ export function Login() {
 
   function redirectLogin() {
     const clientId = "Ov23liR0SizuIMoX7iLC";
-    const redirect = "clone-github-ten.vercel.app/verify";
+    const redirect = "https://clone-github-ten.vercel.app/verify";
     const scope = "repo";
 
     const url = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirect}&scope=${scope}`;
