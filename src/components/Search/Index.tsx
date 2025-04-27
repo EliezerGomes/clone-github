@@ -9,7 +9,7 @@ import { FiFilter } from "react-icons/fi";
 import { SearchProps } from "../../interfaces";
 //Stores
 import { useFilters, useProfile } from "../../stores/useGeneral";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function Search({ types, languages }: SearchProps) {
   const { activeLanguage, activeType, setActiveLanguage, setActiveType } =
@@ -26,11 +26,11 @@ export function Search({ types, languages }: SearchProps) {
 
   const [enable, setEnable] = useState<boolean>(false);
 
-  useEffect(() => {
-    window.addEventListener("resize", resetEnable)
-    resetEnable()
-    return () => window.removeEventListener("resize", resetEnable)
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener("resize", resetEnable)
+  //   resetEnable()
+  //   return () => window.removeEventListener("resize", resetEnable)
+  // }, [])
 
   function handleActiveMenuType(event: React.MouseEvent<HTMLButtonElement>) {
     event.stopPropagation();
@@ -56,9 +56,9 @@ export function Search({ types, languages }: SearchProps) {
     }
   }
 
-  function resetEnable() {
-    setEnable(false);
-  }
+  // function resetEnable() {
+  //   setEnable(false);
+  // }
 
   return (
     <div className="flex items-center md:items-start flex-row-reverse md:flex-col-reverse mx-4 py-3 px-2 rounded-lg bg-custom-white-200 md:mx-0 md:p-0 md:rounded-none md:bg-white lg:flex-row lg:items-center md:gap-7 lg:gap-0 col-auto">
