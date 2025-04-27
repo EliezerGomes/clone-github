@@ -38,9 +38,8 @@ export async function getDataAuthUser(
   }
 }
 
-async function getDataFixedUser(type: string, setStarreds?: (val: number) => void) {
+async function getDataFixedUser(token: string, type: string, setStarreds?: (val: number) => void) {
   const username = "EliezerGomes";
-  const token = "";
   const octokit = new Octokit({ auth: `token ${token}` });
 
   const reposResponse = await octokit.request(
@@ -50,7 +49,7 @@ async function getDataFixedUser(type: string, setStarreds?: (val: number) => voi
     }
   );
 
-  const filteredRepos = reposResponse.data.map((repo: any) => ({
+  const filteredRepos = reposResponse.data.map((repo) => ({
     name: repo.name,
     ownerLogin: repo.owner.login,
     description: repo.description,
@@ -99,9 +98,8 @@ export async function getUserProfile(
   }
 }
 
-async function getFixedUserProfile() {
+async function getFixedUserProfile(token: string) {
   const username = "EliezerGomes";
-  const token = "";
   const octokit = new Octokit({ auth: `token ${token}` });
 
   const response = await octokit.request(`GET /users/${username}`, {
@@ -124,11 +122,8 @@ export async function getStarredCount(token: string): Promise<number> {
   const octokit = new Octokit({ auth: token });
 
   try {
-    const response = await octokit.paginate("GET /user/starred", {
-      per_page: 1,
-    });
-
-    return response.length;
+    const response = await octokit.request("GET /user/starred")
+    return response.data.length;
   } catch (error) {
     console.error("Erro ao obter contagem de repositórios favoritados:", error);
     throw error;
@@ -137,35 +132,35 @@ export async function getStarredCount(token: string): Promise<number> {
 
 export const useRepositories = (token: string) => {
   const { setStarreds } = useProfile();
-  const { authMode } = useToken();
+  const { authMode, tokenFixed } = useToken();
   return useQuery({
     queryKey: ["repositories", token],
     queryFn: () =>
       authMode
-        ? getDataFixedUser("repos", setStarreds)
+        ? getDataFixedUser(tokenFixed, "repos", setStarreds)
         : getDataAuthUser(token, "repos", setStarreds),
     enabled: !!token || !!authMode,
   });
 };
 
 export const useStarred = (token: string, active: string) => {
-  const { authMode } = useToken();
+  const { authMode, tokenFixed } = useToken();
   return useQuery({
     queryKey: ["starred", token],
     queryFn: () =>
       authMode
-        ? getDataFixedUser("starred")
+        ? getDataFixedUser(tokenFixed, "starred")
         : getDataAuthUser(token, "starred"),
     enabled: (!!token || !!authMode) && active === "starred",
   });
 };
 
 export const useUserProfile = (token: string) => {
-  const { authMode } = useToken();
+  const { authMode, tokenFixed } = useToken();
   const { setProfileName } = useToken();
   return useQuery({
     queryKey: ["user", token],
-    queryFn: () => authMode ? getFixedUserProfile() : getUserProfile(token, setProfileName),
+    queryFn: () => authMode ? getFixedUserProfile(tokenFixed) : getUserProfile(token, setProfileName),
     enabled: !!token || !!authMode,
   });
 };

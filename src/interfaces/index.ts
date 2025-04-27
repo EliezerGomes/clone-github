@@ -32,6 +32,7 @@ export interface MenuProps {
 
 export interface StatesTypes {
   token: string;
+  tokenFixed: string;
   authMode: string;
   profileName: string
   setToken: (newToken: string) => void;
