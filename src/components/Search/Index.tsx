@@ -9,7 +9,7 @@ import { FiFilter } from "react-icons/fi";
 import { SearchProps } from "../../interfaces";
 //Stores
 import { useFilters, useProfile } from "../../stores/useGeneral";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function Search({ types, languages }: SearchProps) {
   const { activeLanguage, activeType, setActiveLanguage, setActiveType } =
