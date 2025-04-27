@@ -5,7 +5,7 @@ import { StatesTypes, FilterState, useGeneral } from "../interfaces";
 
 export const useToken = create<StatesTypes>((set) => ({
   token: localStorage.getItem("TOKEN") || "",
-  tokenFixed: "",
+  tokenFixed: import.meta.env.VITE_GITHUB_PAT,
   authMode: localStorage.getItem("AUTH_MODE") || "",
   profileName: "",
   setToken: (newToken: string) => {
