@@ -43,6 +43,8 @@ export interface FilterState {
   searchQuery: string;
   selectedType: string;
   selectedLanguage: string;
+  searchText: string;
+  setSearchText: (query: string) => void;
   setSearchQuery: (query: string) => void;
   setSelectedType: (type: string) => void;
   setSelectedLanguage: (language: string) => void;

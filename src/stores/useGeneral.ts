@@ -20,6 +20,8 @@ export const useFilters = create<FilterState>((set) => ({
   searchQuery: "",
   selectedType: "All",
   selectedLanguage: "All",
+  searchText: "",
+  setSearchText: (query: string) => set({ searchText: query }),
   setSearchQuery: (query: string) => set({ searchQuery: query }),
   setSelectedType: (type: string) => set({ selectedType: type }),
   setSelectedLanguage: (language: string) => set({ selectedLanguage: language }),
