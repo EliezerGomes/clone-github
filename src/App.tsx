@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -16,10 +15,6 @@ import { useToken } from "./stores/useGeneral";
 function App() {
   const { token, authMode } = useToken()
   const queryClient = new QueryClient();
-
-  useEffect(() => {
-    if(token) localStorage.setItem("TOKEN", token)
-  }, [token, authMode])
 
   return (
     <QueryClientProvider client={queryClient}>

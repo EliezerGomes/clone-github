@@ -4,9 +4,9 @@ import { create } from "zustand";
 import { StatesTypes, FilterState, useGeneral } from "../interfaces";
 
 export const useToken = create<StatesTypes>((set) => ({
-  token: localStorage.getItem("TOKEN") || "",
+  token: "",
   tokenFixed: import.meta.env.VITE_GITHUB_PAT,
-  authMode: localStorage.getItem("AUTH_MODE") || "",
+  authMode: "",
   profileName: "",
   setToken: (newToken: string) => {
     set({ token: newToken });

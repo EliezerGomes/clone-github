@@ -18,7 +18,6 @@ export function Login() {
 
   function handleLocalLogin() {
     setAuthMode("local")
-    localStorage.removeItem("TOKEN");
     navigate("/home");
   }
 

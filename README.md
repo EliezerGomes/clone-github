@@ -128,9 +128,14 @@ Siga os passos abaixo para rodar o projeto localmente:
   - Me deparei com o desafio de como exibir as informações pessoais e de repositório do usuári em produção, em alguns endpoints se faz necessário token de acesso, como starred e user para requisitar.
   - Solução: Criei uma autenticação utilizando o OAuth do github, facilitando a manipulção das requisições; Criei também um modo local com um usuário fixo, dessa forma não amarrando o acesso ao sistema via autenticação.
 
+- **Exibir instagram no sidebar**:
+  - Infelizmente a requisção do usuário não trás nenhuma informação referente a alguma rede social.
+  - Contorno: Para não deixar apenas um ícone adicionei "-" para indicar que não há informações no item
+
 ## Melhorias
 
 - Adicionar tratamento de erros mais robusto e descritivos.
 - Adicionar testes unitários usando uma ferramenta como Jest.
 - Adicionar animações nas interações com componentes.
 - Adicionar paginação para exibir um número específico de repositórios, em casos de muitos repositórios pode tornar a exibição da informação um pouco lenta, uma paginação iria otmizar a performance.
+- Salvar o token gerado, seja no session storage ou localstorage, para ao dar refresh da na página não morrer a sessão
