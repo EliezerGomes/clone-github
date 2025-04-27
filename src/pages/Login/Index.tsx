@@ -17,7 +17,6 @@ export function Login() {
   }
 
   function handleLocalLogin() {
-    // localStorage.setItem("AUTH_MODE", "local");
     setAuthMode("local")
     localStorage.removeItem("TOKEN");
     navigate("/home");

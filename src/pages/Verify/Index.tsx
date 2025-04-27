@@ -9,6 +9,8 @@ export function Verify() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(2222);
+    
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
 
