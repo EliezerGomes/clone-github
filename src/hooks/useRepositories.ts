@@ -3,6 +3,8 @@ import { Octokit } from "octokit";
 
 import { useToken, useProfile } from "../stores/useGeneral";
 
+import { GitHubRepo } from "../interfaces";
+
 export async function getDataAuthUser(
   token: string,
   type: string,
@@ -15,7 +17,7 @@ export async function getDataAuthUser(
       visibility: "all",
     });
 
-    const filteredRepos = response.data.map((repo) => ({
+    const filteredRepos = response.data.map((repo: GitHubRepo) => ({
       name: repo.name,
       ownerLogin: repo.owner.login,
       description: repo.description,
@@ -49,7 +51,7 @@ async function getDataFixedUser(token: string, type: string, setStarreds?: (val:
     }
   );
 
-  const filteredRepos = reposResponse.data.map((repo) => ({
+  const filteredRepos = reposResponse.data.map((repo: GitHubRepo) => ({
     name: repo.name,
     ownerLogin: repo.owner.login,
     description: repo.description,

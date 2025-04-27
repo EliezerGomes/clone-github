@@ -46,7 +46,7 @@ export function Home() {
     ),
   ];
 
-  function handleAction(type) {
+  function handleAction(type: string) {
     setActive(type)
     setSearchText("")
   }

@@ -12,6 +12,20 @@ export interface PropertiesRepository {
   open_issues_count?: number;
 }
 
+export interface GitHubRepo {
+  name: string;
+  owner: {
+    login: string;
+  };
+  description: string | null;
+  stargazers_count: number;
+  forks_count: number;
+  language: string | null;
+  fork: boolean;
+  archived: boolean;
+  mirror_url: string | null;
+}
+
 export interface UserProfile {
   avatar_url: string;
   name: string;

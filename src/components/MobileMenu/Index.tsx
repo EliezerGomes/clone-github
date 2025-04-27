@@ -1,7 +1,6 @@
 import { MenuProps } from "../../interfaces";
 
 export function MobileMenu({
-  title,
   options,
   onSelect,
   onClose,
