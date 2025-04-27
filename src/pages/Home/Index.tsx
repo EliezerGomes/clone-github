@@ -9,7 +9,7 @@ import { FaRegStar } from "react-icons/fa";
 import { PropertiesRepository } from "../../interfaces";
 
 //Stores
-import { useToken, useFilters, useProfile } from "../../stores/useLogin";
+import { useToken, useFilters, useProfile } from "../../stores/useGeneral";
 
 import { Search } from "../../components/Search/Index";
 import { useRepositories, useStarred } from "../../hooks/useRepositories";
@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 export function Home() {
   const { token } = useToken();
   const { setActiveLanguage, setActiveType, starreds } = useProfile();
-  const { searchQuery, selectedType, selectedLanguage, clearFilters } =
+  const { searchQuery, selectedType, selectedLanguage, clearFilters, setSearchText } =
     useFilters();
   const [active, setActive] = useState<string>("repository");
 
@@ -46,6 +46,11 @@ export function Home() {
     ),
   ];
 
+  function handleAction(type) {
+    setActive(type)
+    setSearchText("")
+  }
+
   function handleCloseMenus() {
     setActiveType(false);
     setActiveLanguage(false);
@@ -59,14 +64,12 @@ export function Home() {
     if (!repos || repos.length === 0) return [];
 
     return repos.filter((repo) => {
-      // Filtro por texto de busca
       const matchesSearch =
         searchQuery === "" ||
         repo.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         repo.ownerLogin.toLowerCase().includes(searchQuery.toLowerCase()) ||
         repo.description?.toLowerCase().includes(searchQuery.toLowerCase());
 
-      // Filtro por tipo
       let matchesType = true;
       if (selectedType !== "All") {
         if (selectedType === "Sources")
@@ -110,7 +113,7 @@ export function Home() {
               {/* Opções */}
               <div className="flex flex-row justify-center md:justify-start gap-12">
                 <button
-                  onClick={() => setActive("repository")}
+                  onClick={() => handleAction("repository")}
                   className={`flex flex-row items-center md:w-42 lg:w-auto gap-3 border-b-2 0 pb-2 cursor-pointer ${
                     active === "repository"
                       ? "border-orange-400"
@@ -127,7 +130,7 @@ export function Home() {
                 </button>
 
                 <button
-                  onClick={() => setActive("starred")}
+                  onClick={() => handleAction("starred")}
                   className={`flex flex-row md:w-42 lg:w-auto items-center gap-3 border-b-2 0 pb-2 cursor-pointer ${
                     active === "starred"
                       ? "border-orange-400"

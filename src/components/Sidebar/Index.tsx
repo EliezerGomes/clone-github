@@ -5,7 +5,7 @@ import { FaInstagram } from "react-icons/fa";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 //Hook
 import { useUserProfile } from "../../hooks/useRepositories";
-import { useToken } from "../../stores/useLogin";
+import { useToken } from "../../stores/useGeneral";
 import { useState } from "react";
 
 import { InfoMobile } from "../InfoMobile/Index";

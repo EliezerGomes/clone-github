@@ -11,7 +11,7 @@ import { Verify } from "./pages/Verify/Index";
 import { Header } from "./components/Header/Index";
 
 //Stores
-import { useToken } from "./stores/useLogin";
+import { useToken } from "./stores/useGeneral";
 
 function App() {
   const { token, authMode } = useToken()

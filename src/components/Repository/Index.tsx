@@ -4,7 +4,7 @@ import { GoGitBranch } from "react-icons/go";
 //Interfaces
 import { PropertiesRepository } from "../../interfaces";
 
-import { useToken } from "../../stores/useLogin";
+import { useToken } from "../../stores/useGeneral";
 interface Repository {
   repository: PropertiesRepository;
   type: string;

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Octokit } from "octokit";
 
-import { useToken, useProfile } from "../stores/useLogin";
+import { useToken, useProfile } from "../stores/useGeneral";
 
 export async function getDataAuthUser(
   token: string,

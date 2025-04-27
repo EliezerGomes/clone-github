@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //Stores
-import { useToken } from "../../stores/useLogin";
+import { useToken } from "../../stores/useGeneral";
 
 export function Verify() {
   const { setToken } = useToken();

@@ -1,7 +1,7 @@
 import { FaGithub } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-import { useToken } from "../../stores/useLogin";
+import { useToken } from "../../stores/useGeneral";
 
 export function Login() {
   const { setAuthMode } = useToken()
