@@ -77,7 +77,6 @@ export function Sidebar() {
             company={data?.company}
             location={data?.location}
             blog={data?.blog}
-            onClose={() => setIsOpen(false)}
           />
         )}
       </div>

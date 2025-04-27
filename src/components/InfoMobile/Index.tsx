@@ -7,10 +7,9 @@ interface AdditionalInfoProps {
   company: string | null | undefined;
   location: string | null | undefined;
   blog: string | null | undefined;
-  onClose: () => void;
 }
 
-export function InfoMobile({ company, location, blog, onClose }: AdditionalInfoProps) {
+export function InfoMobile({ company, location, blog }: AdditionalInfoProps) {
   return (
     <div className="w-full bg-custom-white-200 rounded-2xl p-4">
       <div className="flex flex-col gap-2 text-custom-blue-500 text-sm font-normal">
