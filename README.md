@@ -72,9 +72,6 @@ Siga os passos abaixo para rodar o projeto localmente:
    O acesso por autenticação só está disponível em produção devido ao github permitir apenas uma rota de callback
 
 6. Acessar Modo Local:
-  Clique em "Usar conta local", o modo local usará um usuário pré definido na aplicação
-
-7. Alterar Usuário Fixo
   Gerando token de acesso:
   - Logue na sua conta GitHub https://github.com
   - Clique na sua foto de perfil
@@ -86,17 +83,19 @@ Siga os passos abaixo para rodar o projeto localmente:
   - Adicione um nome e as permissões de acesso do token, "repo" e "user" ou "repositório" e "usuário"
   - Copie o token gerado
 
-  Substituição no código:
-  - Acesse src/stores/useGeneral.ts
-  - em useToken, substitua o valor "tokenFixed" pelo novo token gerado
+  Adicionar no código código:
+  - Crie um arquivo ".env"
+  - Crie uma variável "VITE_GITHUB_PATH" e adicione o valor do token copiado
+  - Na tela de login clique em "Usar conta local"
 
-8. Busca e Filtros:
+
+7. Busca e Filtros:
    Faça uma busca digiando o valor nome do respositório, do dono repositório ou descrição
    Clique em "Enter" para efetuar a busca
    No mobile para visualizar o campo de busca clique no ícone da lupa, caso deseje retornar para os flitros clique no icone dos filtros
    Faça um filtro clicando na opção "Type" ou "Language" e selecione a opção
 
-9. Visualizar Infomações do Repositório:
+8. Visualizar Infomações do Repositório:
    Clique no repositório desejado
    Você será redirecionado para a "https://github-explorer.gabrielcordeiro.dev" onde será possível visualizar as informações do repositório
 
