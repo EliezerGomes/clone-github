@@ -11,9 +11,8 @@ export function Verify() {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
-    const codeVerifier = localStorage.getItem("VERIFIER");
 
-    if (code && codeVerifier) {
+    if (code) {
       fetch("https://authenticate-github.onrender.com/api/authenticate", {
         method: "POST",
         headers: {
@@ -21,13 +20,12 @@ export function Verify() {
         },
         body: JSON.stringify({
           code,
-          code_verifier: codeVerifier,
         }),
       })
-        .then(res => {
+        .then((res) => {
           return res.json();
         })
-        .then(data => {
+        .then((data) => {
           if (data.access_token) {
             setToken(data.access_token);
             navigate("/home");
@@ -36,7 +34,7 @@ export function Verify() {
             navigate("/");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           console.error("Erro ao trocar código por token:", error.message);
           navigate("/");
         });
@@ -44,5 +42,12 @@ export function Verify() {
       navigate("/");
     }
   }, []);
-  return <></>;
+  return (
+    <div className="h-screen flex flex-col justify-center items-center gap-3">
+      <div className="w-10 h-10 border-1 border-solid border-[#f3f3f3] border-t-1 border-t-solid border-t-orange-500 rounded-full animate-spin"></div>
+      <span className="text-xl text-custom-gray-800">
+        Autenticando, por favor aguarde...
+      </span>
+    </div>
+  );
 }

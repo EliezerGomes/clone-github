@@ -5,9 +5,13 @@ import { StatesTypes, FilterState, useGeneral } from "../interfaces";
 
 export const useToken = create<StatesTypes>((set) => ({
   token: localStorage.getItem("TOKEN") || "",
+  authMode: localStorage.getItem("AUTH_MODE") || "",
   profileName: "",
   setToken: (newToken: string) => {
     set({ token: newToken });
+  },
+  setAuthMode: (val: string) => {
+    set({ authMode: val });
   },
   setProfileName: (profileName: string) => set({ profileName })
 }));

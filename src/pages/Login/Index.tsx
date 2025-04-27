@@ -1,39 +1,44 @@
+import { FaGithub } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+import { useToken } from "../../stores/useLogin";
+
 export function Login() {
+  const { setAuthMode } = useToken()
+  const navigate = useNavigate();
 
-  async function redirectLogin() {
-    const verifier = generateCodeVerifier()
-    localStorage.setItem("VERIFIER", verifier)
-    const challenge = await generateCodeChallenge(verifier);
+  function redirectLogin() {
     const clientId = "Ov23liR0SizuIMoX7iLC";
-    const redirect = "http://localhost:5173/verify"
-    const scope = "repo"
+    const redirect = "http://localhost:5173/verify";
+    const scope = "repo";
 
-    const url = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirect}&scope=${scope}&code_challenge=${challenge}&code_challenge_method=S256`;
-    window.location.href = url
+    const url = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirect}&scope=${scope}`;
+    window.location.href = url;
   }
 
-  function generateCodeVerifier() {
-    const array = new Uint8Array(32);
-    window.crypto.getRandomValues(array);
-    return Array.from(array, (byte) =>
-      ("0" + byte.toString(16)).slice(-2)
-    ).join("");
-  }
-
-  async function generateCodeChallenge(codeVerifier: string) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(codeVerifier);
-    const digest = await window.crypto.subtle.digest("SHA-256", data);
-    const base64String = btoa(String.fromCharCode(...new Uint8Array(digest)));
-    return base64String
-      .replace(/\+/g, "-")
-      .replace(/\//g, "_")
-      .replace(/=+$/, "");
+  function handleLocalLogin() {
+    // localStorage.setItem("AUTH_MODE", "local");
+    setAuthMode("local")
+    localStorage.removeItem("TOKEN");
+    navigate("/home");
   }
 
   return (
-    <div className="h-full w-full flex flex-row justify-center items-center">
-      <button onClick={redirectLogin} className="border">Login</button>
+    <div className="h-screen flex flex-col gap-3 justify-center items-center">
+      <button
+        onClick={redirectLogin}
+        className="border border-custom-gray-800 hover:bg-gray-100 transition-all duration-200 ease-in-out cursor-pointer flex flex-row p-2 rounded-md items-center gap-4"
+      >
+        <div>Entrar com GitHub</div>
+        <FaGithub className="text-xl" />
+      </button>
+      <span>ou</span>
+      <button
+        onClick={handleLocalLogin}
+        className="underline cursor-pointer text-purple-900 hover:text-purple-700 transition-colors duration-200 ease-in-out"
+      >
+        Usar conta local
+      </button>
     </div>
   );
 }

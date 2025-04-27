@@ -29,7 +29,7 @@ export function Home() {
     isLoading: loadingRepository,
     error: errorRepository,
   } = useRepositories(token);
-
+  
   const {
     data: starred,
     isLoading: loadingStarred,
