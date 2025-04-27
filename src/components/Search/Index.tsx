@@ -26,12 +26,6 @@ export function Search({ types, languages }: SearchProps) {
 
   const [enable, setEnable] = useState<boolean>(false);
 
-  useEffect(() => {
-    window.addEventListener("resize", resetEnable)
-    resetEnable()
-    return () => window.removeEventListener("resize", resetEnable)
-  }, [])
-
   function handleActiveMenuType(event: React.MouseEvent<HTMLButtonElement>) {
     event.stopPropagation();
     if (!activeLanguage) {
@@ -53,13 +47,6 @@ export function Search({ types, languages }: SearchProps) {
   function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key === "Enter") {
       setSearchQuery(searchText);
-    }
-  }
-
-  function resetEnable() {
-    const width = window.innerWidth < 768
-    if(width) {
-      setEnable(false);
     }
   }
 
