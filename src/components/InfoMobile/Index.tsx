@@ -21,13 +21,13 @@ export function InfoMobile({ company, location, blog }: AdditionalInfoProps) {
           <IoLocationOutline className="text-lg" />
           <div>{location || "-"}</div>
         </div>
-        <div className="flex flex-row gap-3 items-center">
+        <div className="flex flex-row gap-3 items-center break-words">
           <GoLink className="text-md" />
           <div>{blog || "-"}</div>
         </div>
         <div className="flex flex-row gap-3 items-center">
           <FaInstagram className="text-lg" />
-          <div>Gabriel.s.cordeiro</div>
+          <div>-</div>
         </div>
       </div>
     </div>

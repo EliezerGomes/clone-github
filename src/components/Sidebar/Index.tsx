@@ -53,13 +53,13 @@ export function Sidebar() {
             <IoLocationOutline className="text-xl"/>
             <div>{ data?.location || '-' }</div>
         </div>
-        <div className="flex flex-row gap-2 items-center">
+        <div className="flex flex-row gap-2 items-center break-words">
             <GoLink className="text-md"/>
             <div>{ data?.blog || '-' }</div>
         </div>
         <div className="flex flex-row gap-2 items-center">
             <FaInstagram className="text-xl"/>
-            <div>Gabriel.s.cordeiro</div>
+            <div>-</div>
         </div>
       </div>
 
