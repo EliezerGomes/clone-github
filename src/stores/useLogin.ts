@@ -27,6 +27,8 @@ export const useProfile = create<useGeneral>((set) => ({
   profileName: "",
   activeLanguage: false,
   activeType: false,
+  starreds: 0,
+  setStarreds: (val: number) => set(() => ({ starreds: val })),
   setActiveType: (val: boolean) => set(() => ({ activeType: val })),
   setActiveLanguage: (val: boolean) => set(() => ({ activeLanguage: val }))
 }));

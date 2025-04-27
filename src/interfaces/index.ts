@@ -51,6 +51,8 @@ export interface FilterState {
 export interface useGeneral {
   profileName: string
   activeType: boolean,
+  starreds: number,
+  setStarreds: (val: number) => void;
   setActiveType: (val: boolean) => void;
   activeLanguage: boolean,
   setActiveLanguage: (val: boolean) => void;
