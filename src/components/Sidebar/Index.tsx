@@ -47,15 +47,15 @@ export function Sidebar() {
       <div className="hidden md:flex flex-col gap-4 text-custom-blue-500 font-normal ">
         <div className="flex flex-row gap-2 items-center">
             <TbBuildings className="text-xl"/>
-            <div>{ data?.company || '-' }</div>
+            <div className="flex-1 break-words min-w-0">{ data?.company || '-' }</div>
         </div>
         <div className="flex flex-row gap-2 items-center">
             <IoLocationOutline className="text-xl"/>
-            <div>{ data?.location || '-' }</div>
+            <div className="flex-1 break-words min-w-0">{ data?.location || '-' }</div>
         </div>
-        <div className="flex flex-row gap-2 items-center break-words">
+        <div className="flex flex-row gap-2 items-center">
             <GoLink className="text-md"/>
-            <div>{ data?.blog || '-' }</div>
+            <div className="flex-1 break-words min-w-0">{ data?.blog || '-' }</div>
         </div>
         <div className="flex flex-row gap-2 items-center">
             <FaInstagram className="text-xl"/>

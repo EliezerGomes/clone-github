@@ -15,15 +15,15 @@ export function InfoMobile({ company, location, blog }: AdditionalInfoProps) {
       <div className="flex flex-col gap-2 text-custom-blue-500 text-sm font-normal">
         <div className="flex flex-row gap-3 items-center">
           <TbBuildings className="text-lg" />
-          <div>{company || "-"}</div>
+          <div className="flex-1 break-words min-w-0">{company || "-"}</div>
         </div>
         <div className="flex flex-row gap-3 items-center">
           <IoLocationOutline className="text-lg" />
-          <div>{location || "-"}</div>
+          <div className="flex-1 break-words min-w-0">{location || "-"}</div>
         </div>
-        <div className="flex flex-row gap-3 items-center break-words">
+        <div className="flex flex-row gap-3 items-center">
           <GoLink className="text-md" />
-          <div>{blog || "-"}</div>
+          <div className="flex-1 break-words min-w-0">{blog || "-"}</div>
         </div>
         <div className="flex flex-row gap-3 items-center">
           <FaInstagram className="text-lg" />

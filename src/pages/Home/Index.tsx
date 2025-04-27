@@ -147,7 +147,7 @@ export function Home() {
                 </button>
               </div>
 
-              <div className="flex-1 gap-8 flex flex-col ">
+              <div className="flex-1 gap-8 flex flex-col mb-5">
                 <Search types={types} languages={languages} />
 
                 {loadingStarred ? (
