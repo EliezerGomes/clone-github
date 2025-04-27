@@ -25,13 +25,12 @@ export function Search({ types, languages }: SearchProps) {
   } = useFilters();
 
   const [enable, setEnable] = useState<boolean>(false);
-  const [width, setWidth] = useState(window.innerWidth)
 
   useEffect(() => {
     window.addEventListener("resize", resetEnable)
     resetEnable()
     return () => window.removeEventListener("resize", resetEnable)
-  }, [width])
+  }, [])
 
   function handleActiveMenuType(event: React.MouseEvent<HTMLButtonElement>) {
     event.stopPropagation();
