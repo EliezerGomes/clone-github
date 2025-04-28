@@ -56,14 +56,14 @@ Siga os passos abaixo para rodar o projeto localmente:
    git clone https://github.com/EliezerGomes/clone-github.git
    cd clone-github
 
-2. Instação de dependências:
+2. Instalação de dependências:
    npm install ou yarn
 
 3. Inicie o Servidor:
    npm run dev ou yarn dev
 
 4. Acesse a Aplicação:
-   http://localhost:5173 (Substitua a porta, caso tenha alterado no vite.config)
+   http://localhost:5173
 
 5. Acesso por Autenticação:
    Clique em "Entrar com GitHub"
@@ -72,7 +72,7 @@ Siga os passos abaixo para rodar o projeto localmente:
    O acesso por autenticação só está disponível em produção devido ao github permitir apenas uma rota de callback
 
 6. Acessar Modo Local:
-  Gerando token de acesso:
+ - Gerando token de acesso:
   - Logue na sua conta GitHub https://github.com
   - Clique na sua foto de perfil
   - Clique na opção "Settings" ou "Configurações"
@@ -83,7 +83,7 @@ Siga os passos abaixo para rodar o projeto localmente:
   - Adicione um nome e as permissões de acesso do token, "repo" e "user" ou "repositório" e "usuário"
   - Copie o token gerado
 
-  Adicionar no código código:
+ - Adicionar no código código:
   - Crie um arquivo ".env"
   - Crie uma variável "VITE_GITHUB_PATH" e adicione o valor do token copiado
   - Na tela de login clique em "Usar conta local"
@@ -104,7 +104,7 @@ Siga os passos abaixo para rodar o projeto localmente:
 - **Autenticação OAuth**:
   - Usei a autenticação via OAuth para facilitar as requisições na aplicação, devido os endpoints de user e starreds necessitarem de um token para serem executadas. O uso da autenticação via OAuth, também facilita a troca de usuários, sem a necessidade de gerar manualmente um token de acesso.
 
-- **Autenticação OAuth**:
+- **Usuário Local**:
   - Implementei um modo local usando um Personal Access Token (PAT) para buscar dados de um usuário fixo, permitindo testes na aplicação sem se fazer necessária o uso de autenticação.
 
 - **Gerenciamento de Requisições**:
